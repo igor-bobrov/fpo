@@ -1,4 +1,0 @@
-#!/bin/sh
-find / -name *.tpm -ok rm {} \
-
-#dont work
