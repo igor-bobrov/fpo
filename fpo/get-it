@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# сделать проерку интернета
+sudo pacman -Syu
+sudo pacman -S wlroots wayland-protocols seatd git --noconfirm
+cd
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd
+git clone https://github.com/djpohly/dwl
+
+# 
+
+sudo usermod -aG seat sakari # User
+
+# клонирование из dwl
+cp -r ~/fpo/tar-files/dwl ~/
+# Папки
+mkdir -p ~/Documents
+mkdir -p ~/Downloads
+mkdir -p ~/Music
+mkdir -p ~/Videos
+mkdir -p ~/Persistant/Documents
+mkdir -p ~/Persistant/Downloads
+mkdir -p ~/Persistant/Music
+mkdir -p ~/Persistant/Videos
+cp -r ~/fpo/Manuals/ ~/Persistant/Documents
+cp -r ~/fpo/auto-upd ~/
+#
+sudo usermod -aG seat sakari # User
+#
+cd dwl
+make
+
+./dwl
+
